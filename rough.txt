@@ -1,0 +1,46 @@
+import React from 'react'
+
+function Summarycard({icon,text,number,color}) {
+  return (
+    <div className='rounded flex bg-white hover:bg-green-200'> 
+        
+        <div className={`text-3xl flex justify-center ${color} items-center  text-white px-4 `}>
+            {icon}
+        </div>
+
+        <div className='pl-4 py-1'>
+            <p className='text-lg font-semibold'>
+                {text}
+            </p>
+            <p className='text-xl font-bold'>
+                {number}
+            </p>
+        </div>
+
+
+    </div>
+  )
+}
+
+export default Summarycard
+
+
+<Link to="/admin-dashboard/employees" className='px-4 py-1 bg-teal-600 rounded text-white'>Add New Department</Link>
+
+
+{/**Gender FILE */}
+        <div>
+            <label className='block text-sm font-medium text-gray-700'>
+                Gender
+            </label>
+            <select 
+                name='gender'
+                className='mt-1 p-2 block w-full border border-gray-300 rounded-md'
+            required
+            >
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
