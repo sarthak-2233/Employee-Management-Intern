@@ -1,0 +1,125 @@
+import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const images = [
+  "https://cdnbbsr.s3waas.gov.in/s3dcf6070a4ab7f3afbfd2809173e0824b/uploads/2025/01/202502191099986199.png",
+  "https://cbpssubscriber.mygov.in/assets/uploads/juGajmc1gOVBUtt5",
+  "https://cdnbbsr.s3waas.gov.in/s3dcf6070a4ab7f3afbfd2809173e0824b/uploads/2025/01/20250219474581099.png",
+  "https://cdnbbsr.s3waas.gov.in/s3dcf6070a4ab7f3afbfd2809173e0824b/uploads/2025/01/202502192027007184.png"
+];
+
+const Login = () => {
+  const navigate = useNavigate();
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    let startPosition = 0;
+
+    const slide = () => {
+      startPosition -= 1; // Control speed here (smaller = slower)
+      if (startPosition <= -slider.scrollWidth / 2) {
+        startPosition = 0;
+      }
+      slider.style.transform = `translateX(${startPosition}px)`;
+      requestAnimationFrame(slide);
+    };
+
+    requestAnimationFrame(slide);
+  }, []);
+
+  function handle(e) {
+    e.preventDefault();
+    if (email.length !== 0 && password.length !== 0) {
+      navigate("/admin-dashboard");
+    } else {
+      alert("Empty Credentials");
+    }
+  }
+
+  return (
+    <div 
+      className="relative flex flex-col items-center h-screen justify-center 
+                 bg-gradient-to-b from-gray-100 from-1/2 to-gray-100 to-1/2 overflow-hidden"
+    >
+      {/* Continuous Left-to-Right Slider */}
+      <div className="absolute top-0 left-0 w-full h-1/2 overflow-hidden">
+        <div 
+          ref={sliderRef}
+          className="flex w-max"
+          style={{ whiteSpace: 'nowrap' }}
+        >
+          {/* Duplicate images for seamless loop */}
+          {[...images, ...images].map((image, index) => (
+            <div key={index} className="w-screen h-full shrink-0">
+              <img 
+                src={image} 
+                alt={`Slide ${index + 1}`} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+        <h2 
+           className="text-white text-3xl z-10"
+            style={{
+          textShadow: '2px 2px 4px rgba(0,0,0,0.6)',
+          }}>
+              National Information Center
+          </h2>
+
+
+
+      <div className="border shadow p-6 w-80 bg-white rounded-lg z-10">
+        <h2 className="text-2xl font-bold mb-4">LOGIN</h2>
+        <form onSubmit={handle}>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-gray-700">
+              Email
+            </label>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="w-full px-3 py-2 border rounded-md"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="w-full px-3 py-2 border rounded-md"
+            />
+          </div>
+
+          <div className="mb-4 flex items-center justify-between">
+            <label className="inline-flex items-center">
+              <input type="checkbox" className="form-checkbox" />
+              <span className="ml-2 text-gray-700">Remember Me</span>
+            </label>
+            <a href="#" className="text-teal-600 hover:underline">
+              Forgot password
+            </a>
+          </div>
+
+          <button 
+            type="submit" 
+            className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 rounded-md transition"
+          >
+            Login
+          </button>
+        </form>
+        
+      </div>
+    </div>
+  );
+};
+
+export default Login;
