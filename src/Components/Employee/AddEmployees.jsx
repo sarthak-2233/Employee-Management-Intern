@@ -195,7 +195,7 @@ function AddEmployees() {
         </div>
 
             <button type='submit'
-                className='w-full mt-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-md'
+                className='w-full mt-6 bg-slate-700 hover:cursor-pointer hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-md'
             >
                 Add Employee
             </button>

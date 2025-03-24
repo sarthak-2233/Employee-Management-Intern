@@ -3,7 +3,7 @@ import React from 'react'
 function AddSalary() {
   return (
     <div className='max-w-4xl  mx-auto mt-16 bg-white p-8 rounded-md shadow-md'>
-      <h2 className='text-2xl font-bold mb-8'>Add New Employees</h2>
+      <h2 className='text-2xl font-bold mb-8'>Add New Employees Salary</h2>
 
       <form >
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
@@ -105,7 +105,7 @@ function AddSalary() {
         </div>
 
             <button type='submit'
-                className='w-full mt-6 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-md'
+                className='w-full mt-6 bg-slate-700 hover:cursor-pointer hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-md'
             >
                 Add Salary
             </button>
