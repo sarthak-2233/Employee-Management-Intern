@@ -3,7 +3,7 @@ import React from 'react'
 function Leave() {
   return (
     <div>
-      This is leave
+      Updating Ui ... Loading soon
     </div>
   )
 }
